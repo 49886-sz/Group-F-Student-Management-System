@@ -28,7 +28,7 @@ Present the highest-priority user stories to the team and let them commit to wha
 
 ---
 
-## 🎯 Sprint 1 Goal (Proposed)
+## 🎯 Sprint 1 Goal
 
 > **"By the end of Sprint 1 (Oct 20, 2026), the system will have a working login for all 3 user roles (Admin, Teacher, Student), logout functionality, and the admin will be able to register and view students."**
 
@@ -68,22 +68,6 @@ By the end of this meeting:
 | Confirm Sprint Backlog on Trello | Tamana (SM) | Oct 11 |
 | Post recording link to `docs/10-Recordings/` | Hamida (Dev 1) | Oct 11 |
 | Present this agenda on GitHub | Sarah (PO) | Oct 10 (tonight) |
-
----
-
-## 💬 Talking Points for Product Owner (Sarah)
-
-**Opening:**
-> *"Welcome team! This is our very first Sprint Planning meeting. In the next hour, I'll present our Product Backlog and the top 6 stories for Sprint 1. Then, you'll decide what you can commit to delivering by Oct 20. Let's get started."*
-
-**When presenting stories:**
-> *"Story US-01: As an Admin, I want to log in with my username and password so that I can securely access the admin dashboard. This is a critical foundation story — without login, nothing else works."*
-
-**When the team asks what to prioritize:**
-> *"Focus on US-01 to US-06 — these are the critical foundation features. Everything in Sprint 2 and 3 depends on these working first."*
-
-**When confirming the sprint:**
-> *"So our Sprint Goal is: by Oct 20, we have a working login for all roles, plus admin can register and view students. Everyone agree? Great — Sprint 1 starts now!"*
 
 ---
 *Prepared by: Sarah Zaheer (Product Owner)*
