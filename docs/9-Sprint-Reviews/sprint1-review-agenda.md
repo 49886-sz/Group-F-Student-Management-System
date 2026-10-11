@@ -50,32 +50,6 @@ Review the Sprint 1 increment (working software), accept or reject completed sto
 
 ---
 
-## 🎤 PO Script for Sprint Review
-
-**Opening:**
-> *"Welcome to the Sprint 1 Review. Our Sprint Goal was: by Oct 20, we have working login for all roles, plus admin can register and view students. Team, please demonstrate what you've built."*
-
-**During demo (for each story):**
-> *"US-01 — Admin login. Hamida, please show me this working. ... Great, the admin can log in successfully. **I accept this story.**"*
-
-**If a story isn't done:**
-> *"This story isn't complete yet. Let's move it to Sprint 2. What blocked it?"*
-
-**Closing:**
-> *"Great work, team! 6 out of 6 stories accepted. Let's move to the retrospective."*
-
----
-
-## ✅ Expected Outcomes
-
-By the end of this meeting:
-1. Each Sprint 1 story is either **Accepted** or **Moved to Sprint 2**
-2. Team receives feedback from PO
-3. Retrospective action items captured
-4. Sprint 2 stories previewed
-
----
-
 ## 📝 Post-Meeting Actions
 
 | Action | Owner | Deadline |
