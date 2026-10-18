@@ -1,10 +1,13 @@
 # Python virtual environments
 venv/
 .venv/
+backend/venv/
 
-# Python cache files
+# Python cache
 __pycache__/
 *.py[cod]
 
-# Local SQLite database
+# Local databases
 *.db
+*.sqlite
+*.sqlite3
