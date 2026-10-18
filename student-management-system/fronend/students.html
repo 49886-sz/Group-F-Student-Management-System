@@ -169,6 +169,28 @@
         </div>
 
     </main>
+<script>
+  fetch("http://127.0.0.1:5000/students")
+    .then(response => response.json())
+    .then(data => {
+      const tableBody = document.getElementById("student-table-body");
+      tableBody.innerHTML = "";
+      data.forEach(student => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${student.id}</td>
+          <td>${student.name}</td>
+          <td>${student.class}</td>
+          <td>${student.status}</td>
+        `;
+        tableBody.appendChild(row);
+      });
+    })
+    .catch(error => console.error("Error loading students:", error));
+</script>
+
+</body>
+</html>
 
 </body>
 </html>
