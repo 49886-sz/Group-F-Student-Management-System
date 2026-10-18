@@ -16,12 +16,16 @@ The main goal is to make sure users can log in safely based on their specific ro
 ---
 
 ## 📌 Sprint Backlog Items
-- **US-01: Admin Login Interface** (Assigned to: Najma Jamshidi | Status: 🔄 In Progress)
-- **US-02: Teacher Login Interface** (Assigned to: Najma Jamshidi | Status: ⏳ To Do)
-- **US-03: Student Login Functionality** (Assigned to: Hamida Sana | Status: ⏳ To Do)
-- **US-04: Logout Functionality** (Assigned to: Hamida Sana | Status: ⏳ To Do)
-- **US-05: Register New Students Portal** (Assigned to: Hamida Sana | Status: ⏳ To Do)
-- **US-06: View All Students List View** (Assigned to: Najma Jamshidi | Status: ⏳ To Do)
+
+| ID | Backlog Item | Assigned To | Status |
+| :--- | :--- | :--- | :--- |
+| **US-01** | Admin Login Interface | Najma Jamshidi | 🔄 In Progress |
+| **US-02** | Teacher Login Interface | Najma Jamshidi | ⏳ To Do |
+| **US-03** | Student Login Functionality | Hamida Sana | ⏳ To Do |
+| **US-04** | Logout Functionality | Hamida Sana | ⏳ To Do |
+| **US-05** | Register New Students Portal | Hamida Sana | ⏳ To Do |
+| **US-06** | View All Students List View | Najma Jamshidi | ⏳ To Do |
+
 
 ---
 
