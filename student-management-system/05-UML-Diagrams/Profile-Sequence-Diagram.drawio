@@ -1,0 +1,43 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="6MRyIuDcQ0Zcxtld6n8J">
+    <mxGraphModel dx="1006" dy="697" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="GqZ0-2JEtBjAbpPkHAsi-4" edge="1" parent="1" source="GqZ0-2JEtBjAbpPkHAsi-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="GqZ0-2JEtBjAbpPkHAsi-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GqZ0-2JEtBjAbpPkHAsi-6" connectable="0" parent="GqZ0-2JEtBjAbpPkHAsi-4" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Request to view profile" vertex="1">
+          <mxGeometry relative="1" x="-0.0645" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GqZ0-2JEtBjAbpPkHAsi-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="User" vertex="1">
+          <mxGeometry height="60" width="120" x="20" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="GqZ0-2JEtBjAbpPkHAsi-5" edge="1" parent="1" source="GqZ0-2JEtBjAbpPkHAsi-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="GqZ0-2JEtBjAbpPkHAsi-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GqZ0-2JEtBjAbpPkHAsi-7" connectable="0" parent="GqZ0-2JEtBjAbpPkHAsi-5" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Fetch profile data" vertex="1">
+          <mxGeometry relative="1" x="0.0214" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GqZ0-2JEtBjAbpPkHAsi-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Profile Page" vertex="1">
+          <mxGeometry height="60" width="120" x="450" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="GqZ0-2JEtBjAbpPkHAsi-8" edge="1" parent="1" source="GqZ0-2JEtBjAbpPkHAsi-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" target="GqZ0-2JEtBjAbpPkHAsi-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GqZ0-2JEtBjAbpPkHAsi-9" connectable="0" parent="GqZ0-2JEtBjAbpPkHAsi-8" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Profile data returned&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="0.5322" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GqZ0-2JEtBjAbpPkHAsi-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="System/API" vertex="1">
+          <mxGeometry height="60" width="120" x="850" y="230" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
