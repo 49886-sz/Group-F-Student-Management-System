@@ -59,7 +59,7 @@ The purpose of this meeting was to discuss and confirm the Scrum team roles and 
 
 ## Recording
 
-**Recording Link:** [View Recording]([https://github.com](https://drive.google.com/file/d/1poco_bmMZM5APj4MRVOGyAd4RVD5VpZR/view?usp=sharing))
+**Recording Link:** https://drive.google.com/file/d/1poco_bmMZM5APj4MRVOGyAd4RVD5VpZR/view?usp=sharing
 
 ***
 
