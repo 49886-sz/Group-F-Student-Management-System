@@ -54,7 +54,7 @@ The purpose of this meeting was to discuss and confirm the Scrum team roles and 
 ## Next Meeting
 
 **Topic:** Daily Scrum & Sync
-**Date:** October 13, 2026
+**Date:** October 11, 2026
 **Facilitator:** Tamana Omar (Scrum Master)
 
 ## Recording
