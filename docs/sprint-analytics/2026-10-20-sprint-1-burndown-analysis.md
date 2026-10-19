@@ -85,7 +85,7 @@ Ideal burndown:
 * **Day 10:** 0
 
 📈 **Sprint 1 Burndown Chart**  
-*(Include your visual chart graphic file path here, e.g., `![Sprint 1 Burndown](./images/sprint-1-chart.png)`)*
+![Sprint 1 Burndown Chart](./images/sprint-1-chart.png)
 
 ## Analysis
 
