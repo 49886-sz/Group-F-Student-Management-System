@@ -1,158 +1,176 @@
-# User Stories Specification Document
+# User Stories – Student Management System
 
-**Project Reference:** Student Management System (SMS)  
-**Engineering Group:** Group F  
-**Product Owner:** Sarah Zaheer  
-**Scrum Master:** Tamana Omar  
-**Baseline Release Date:** October 10, 2026  
-
----
-
-## 1. System Actors & Operational Roles
-
-*   **Admin:** A high-level school administrator managing platform configurations, core user registries, and resource catalogs.
-*   **Teacher:** An instructor managing specific course assignments, logging daily attendance records, and auditing student grades.
-*   **Student:** A registered learner accessing individual academic schedules, monitoring personal performance history, and tracking attendance.
-*   **System:** Automated backend background processes handling calculations, notifications, and security rules.
+**Project:** Group F – Student Management System
+**Product Owner:** Sarah Zaheer
+**Total Stories:** 20
+**Format:** As a [role], I want [feature], so that [benefit]
 
 ---
 
-## 2. Master User Stories & Acceptance Criteria
+## 👤 Actors / Roles
+- **Admin** – School administrator managing the system
+- **Teacher** – Instructor managing courses, grades, attendance
+- **Student** – Learner accessing their academic information
+- **System** – Automated system processes
+
+---
+
+## 📋 All 20 User Stories
 
 ### 🔐 Authentication & Access (Stories 1–4)
 
-#### **US-01:** As an **Admin**, I want to **log in with my username and password**, so that **I can securely access the admin dashboard**.
+**US-01:** As an **Admin**, I want to **log in with my username and password**, so that **I can securely access the admin dashboard**.
 *   **Acceptance Criteria:**
-    *   *Given* an active administrator user profile exists in the database, *when* valid credentials are typed into the main login panel, *then* the platform must route the user directly to the Admin Command Center.
-    *   *Given* incorrect inputs are provided, *when* the submission button is clicked, *then* the system denies access and displays a secure "Authentication Failed" alert.
+    *   **Given:** The admin user is on the portal login screen.
+    *   **When:** They enter a valid admin username and password combination.
+    *   **Then:** The system generates a valid session and opens the main admin dashboard view.
 
-#### **US-02:** As a **Teacher**, I want to **log in with my credentials**, so that **I can manage my courses and student grades**.
+**US-02:** As a **Teacher**, I want to **log in with my credentials**, so that **I can manage my courses and student grades**.
 *   **Acceptance Criteria:**
-    *   *Given* a verified teacher account exists, *when* they submit correct login data, *then* they are granted secure write access to their assigned courses.
+    *   **Given:** The instructor user is on the main landing screen.
+    *   **When:** They enter their registered email account and secure password credentials.
+    *   **Then:** The system routes them to their personalized dashboard containing assigned course sections.
 
-#### **US-03:** As a **Student**, I want to **log in with my student ID and password**, so that **I can view my academic information**.
+**US-03:** As a **Student**, I want to **log in with my student ID and password**, so that **I can view my academic information**.
 *   **Acceptance Criteria:**
-    *   *Given* a registered student profile, *when* a successful login occurs, *then* the system loads their personal academic landing page in read-only view.
+    *   **Given:** The student is looking at the system authentication panel.
+    *   **When:** They provide their unique student identity code and security password.
+    *   **Then:** The app initializes their student interface in a secure read-only state.
 
-#### **US-04:** As a **User**, I want to **log out of the system**, so that **my account stays secure when I leave**.
+**US-04:** As a **User**, I want to **log out of the system**, so that **my account stays secure when I leave**.
 *   **Acceptance Criteria:**
-    *   *Given* an active authorized browser session, *when* the user hits the "Logout" control, *then* the backend must immediately clear all session tokens and direct the browser back to the main login screen.
+    *   **Given:** A user holds an active, authorized login status in their browser.
+    *   **When:** They select the system log out interface command option.
+    *   **Then:** The backend terminates the session tokens and returns the display to the login root.
 
 ---
 
 ### 🎓 Student Management (Stories 5–9)
 
-#### **US-05:** As an **Admin**, I want to **register new students** by entering their personal details, so that **their records are stored in the system**.
+**US-05:** As an **Admin**, I want to **register new students** by entering their personal details, so that **their records are stored in the system**.
 *   **Acceptance Criteria:**
-    *   *Given* a complete registration data sheet, *when* the administrator commits the form, *then* a unique record identifier is generated and safely stored in the master database.
+    *   **Given:** The admin opens the official student onboarding workspace form.
+    *   **When:** They fill in all requested fields with valid information parameters and click save.
+    *   **Then:** The system creates a clean record index row inside the master database.
 
-#### **US-06:** As an **Admin**, I want to **view a list of all registered students**, so that **I can manage student records efficiently**.
+**US-06:** As an **Admin**, I want to **view a list of all registered students**, so that **I can manage student records efficiently**.
 *   **Acceptance Criteria:**
-    *   *Given* active rows of student profiles, *when* the administrative user opens the student list panel, *then* the interface must compile a clear table with indexing tools.
+    *   **Given:** The administrator selects the main user catalog section path.
+    *   **When:** The database query fetches the profile indexes.
+    *   **Then:** The client interface builds a clean table matrix reflecting all registered system users.
 
-#### **US-07:** As an **Admin**, I want to **update a student's information** (name, contact, address), so that **records stay accurate**.
+**US-07:** As an **Admin**, I want to **update a student's information** (name, contact, address), so that **records stay accurate**.
 *   **Acceptance Criteria:**
-    *   *Given* an editable student profile view, *when* the admin modifies parameters and clicks "Save Changes", *then* modifications are immediately committed to the central database.
+    *   **Given:** The admin has loaded a targeted student profile edit template box.
+    *   **When:** They adjust specific user values and hit the save updates control command.
+    *   **Then:** The system overwrites the corresponding record fields instantly in the central system storage.
 
-#### **US-08:** As an **Admin**, I want to **delete or deactivate a student's account**, so that **former students no longer access the system**.
+**US-08:** As an **Admin**, I want to **delete or deactivate a student's account**, so that **former students no longer access the system**.
 *   **Acceptance Criteria:**
-    *   *Given* a profile selected for removal, *when* the deactivation request is confirmed, *then* the system changes the account status to "Inactive" and instantly revokes all login permissions.
+    *   **Given:** An active profile entry is targeted for removal or system locking.
+    *   **When:** The administrator triggers the account suspension soft-delete option.
+    *   **Then:** The portal drops the profile status code to inactive and rejects all subsequent logins.
 
-#### **US-09:** As a **Student**, I want to **view my own profile**, so that **I can verify my personal information is correct**.
+**US-09:** As a **Student**, I want to **view my own profile**, so that **I can verify my personal information is correct**.
 *   **Acceptance Criteria:**
-    *   *Given* an authorized student dashboard session, *when* the personal profile tab is opened, *then* the system renders their demographic info in a strict read-only template.
+    *   **Given:** A student has completed secure validation and sits on their profile page.
+    *   **When:** They click into the core demographics view tab container.
+    *   **Then:** The system displays their registered details inside a clean uneditable information frame.
 
 ---
 
 ### 📚 Course Management (Stories 10–13)
 
-#### **US-10:** As an **Admin**, I want to **create new courses** with a name, code, and credit hours, so that **students can enroll in them**.
+**US-10:** As an **Admin**, I want to **create new courses** with a name, code, and credit hours, so that **students can enroll in them**.
 *   **Acceptance Criteria:**
-    *   *Given* the core structural details of a course, *when* the admin submits the setup form, *then* the unit is instantly published to the academic catalog catalog.
+    *   **Given:** The admin wants to establish a new academic module record.
+    *   **When:** They input a valid course title, unique system code string, and credit parameter.
+    *   **Then:** The element logs successfully and appears inside the active school catalog listings.
 
-#### **US-11:** As an **Admin**, I want to **assign teachers to courses**, so that **each course has an instructor responsible for it**.
+**US-11:** As an **Admin**, I want to **assign teachers to courses**, so that **each course has an instructor responsible for it**.
 *   **Acceptance Criteria:**
-    *   *Given* a list of open course catalogs, *when* the admin maps a specific faculty ID to a selected course section, *then* that course displays directly inside the corresponding teacher's workspace dashboard.
+    *   **Given:** An open curriculum section entry has no instructor reference mapped.
+    *   **When:** The admin binds an instructor account ID to that target course sequence item.
+    *   **Then:** The item registers automatically in the target faculty member's private course sheet.
 
-#### **US-12:** As a **Teacher**, I want to **view the list of students enrolled in my courses**, so that **I can manage my class rosters**.
+**US-12:** As a **Teacher**, I want to **view the list of students enrolled in my courses**, so that **I can manage my class rosters**.
 *   **Acceptance Criteria:**
-    *   *Given* an active classroom unit, *when* the assigned instructor selects their roster tab, *then* the system serves a real-time list of all students registered in that module.
+    *   **Given:** An instructor user views an assigned classroom project section box.
+    *   **When:** They toggle open the class roster layout grid.
+    *   **Then:** The system runs a relational search query and surfaces all student keys enrolled.
 
-#### **US-13:** As a **Student**, I want to **enroll in available courses**, so that **I can register for the classes I need**.
+**US-13:** As a **Student**, I want to **enroll in available courses**, so that **I can register for the classes I need**.
 *   **Acceptance Criteria:**
-    *   *Given* a student with zero registration blocks, *when* they opt into an open course section, *then* their identifier attaches to the class roll and the section's seat vacancy counter drops by one.
+    *   **Given:** A student profile carries zero enrollment limitations, and a class has open space.
+    *   **When:** The student hits the course entry registration link trigger.
+    *   **Then:** Their unique identifier binds to the class matrix array and class vacancy counts reduce.
 
 ---
 
 ### 📝 Grades Management (Stories 14–16)
 
-#### **US-14:** As a **Teacher**, I want to **enter grades for students in my courses**, so that **their academic performance is recorded**.
+**US-14:** As a **Teacher**, I want to **enter grades for students in my courses**, so that **their academic performance is recorded**.
 *   **Acceptance Criteria:**
-    *   *Given* an open grade sheet, *when* numerical scores are keyed in, *then* the platform verifies entries match structural boundaries (0.00% to 100.00%) before committing to records.
+    *   **Given:** The professor opens the digital grade book grid matrix cell sheet.
+    *   **When:** They enter numeric score inputs into target columns and save.
+    *   **Then:** The application updates rows while running boundaries checks to reject data out of a 0-100 range.
 
-#### **US-15:** As a **Teacher**, I want to **update or edit existing grades**, so that **corrections can be made when needed**.
+**US-15:** As a **Teacher**, I want to **update or edit existing grades**, so that **corrections can be made when needed**.
 *   **Acceptance Criteria:**
-    *   *Given* a previously stored grade cell, *when* the teacher updates the cell and overrides the value, *then* the backend overwrites the previous point matrix and updates the running average calculation.
+    *   **Given:** A previously finalized assignment grade value is saved in the record table.
+    *   **When:** The teacher edits that target field cell and updates it with an adjusted score entry.
+    *   **Then:** The software replaces the numerical element data and triggers active grade average routines.
 
-#### **US-16:** As a **Student**, I want to **view my grades for each course**, so that **I can track my academic progress**.
+**US-16:** As a **Student**, I want to **view my grades for each course**, so that **I can track my academic progress**.
 *   **Acceptance Criteria:**
-    *   *Given* grades published by instructors, *when* a student accesses their evaluation panel, *then* a breakdown of cumulative marks is displayed alongside their target grade classifications.
+    *   **Given:** An authenticated student is active inside their study portal session.
+    *   **When:** They navigate directly into their evaluation record overview window component.
+    *   **Then:** The system displays a structured layout detailing individual module scores and running GPA marks.
 
 ---
 
 ### 📅 Attendance Tracking (Stories 17–18)
 
-#### **US-17:** As a **Teacher**, I want to **mark attendance for students in my class**, so that **daily attendance records are maintained**.
+**US-17:** As a **Teacher**, I want to **mark attendance for students in my class**, so that **daily attendance records are maintained**.
 *   **Acceptance Criteria:**
-    *   *Given* an ongoing class calendar day, *when* the instructor completes checkmarks for "Present", "Absent", or "Tardy", *then* the entries are stored permanently in the attendance ledger.
+    *   **Given:** An instructor launches the daily attendance checker layout screen asset.
+    *   **When:** They check off Present, Absent, or Tardy boxes for the row listings and save.
+    *   **Then:** The system appends a historical record map linked to the current calendar date stamp.
 
-#### **US-18:** As a **Student**, I want to **view my attendance history**, so that **I know how many classes I have attended**.
+**US-18:** As a **Student**, I want to **view my attendance history**, so that **I know how many classes I have attended**.
 *   **Acceptance Criteria:**
-    *   *Given* an authorized student dashboard view, *when* the user audits their participation records, *then* the system processes a live percentage calculation of their historical classroom presence.
+    *   **Given:** A student runs their active application metrics widget.
+    *   **When:** They call the personal participation repository page request link.
+    *   **Then:** The client interface presents a dynamic running ratio of their classroom presence metric.
 
 ---
 
 ### 📊 Reports & Notifications (Stories 19–20)
 
-#### **US-19:** As an **Admin**, I want to **generate reports** (student lists, grades summaries, attendance reports), so that **I can analyze school data**.
+**US-19:** As an **Admin**, I want to **generate reports** (student lists, grades summaries, attendance reports), so that **I can analyze school data**.
 *   **Acceptance Criteria:**
-    *   *Given* complete datasets across system modules, *when* the admin triggers the report generation process, *then* the server aggregates individual records into a downloadable tabular view.
+    *   **Given:** The admin enters the main database compilation panel folder path.
+    *   **When:** They check an aggregation report archetype and initiate the collection query loop.
+    *   **Then:** The server builds a clean data table structure and exports a copy file stream.
 
-#### **US-20:** As a **Student**, I want to **receive notifications about my grades and enrollment**, so that **I stay updated on important academic events**.
+**US-20:** As a **Student**, I want to **receive notifications about my grades and enrollment**, so that **I stay updated on important academic events**.
 *   **Acceptance Criteria:**
-    *   *Given* a database update trigger (such as a published grade), *when* the record saves, *then* the system creates an automated notification banner displayed on the student’s landing view.
+    *   **Given:** A major data edit action executes inside the course evaluation pipeline.
+    *   **When:** The user enters the primary application space.
+    *   **Then:** The software dynamically injects a top-tier alert banner box matching the change status.
 
 ---
 
-## 3. Core Matrix Data Summaries
+## 📊 Story Summary by Role
 
-### Matrix Table 1: Story Allocation by System Role
+| Role | Number of Stories | Story IDs |
+| :--- | :---: | :--- |
+| Admin | 8 | US-01, US-05, US-06, US-07, US-08, US-10, US-11, US-19 |
+| Teacher | 5 | US-02, US-12, US-14, US-15, US-17 |
+| Student | 6 | US-03, US-09, US-13, US-16, US-18, US-20 |
+| All Users | 1 | US-04 |
+| **Total** | **20** | — |
 
-| Target User Role | Cumulative Volume | Associated Story Reference Identifiers |
-| :--- | :--- | :--- |
-| **Admin** | 8 Stories | US-01, US-05, US-06, US-07, US-08, US-10, US-11, US-19 |
-| **Teacher** | 5 Stories | US-02, US-12, US-14, US-15, US-17 |
-| **Student** | 6 Stories | US-03, US-09, US-13, US-16, US-18, US-20 |
-| **All Users** | 1 Story | US-04 |
-| **Total Backlog** | **20 Stories** | **Core Product Requirements Frozen** |
+## 📊 Story Summary by Feature Area
 
-### Matrix Table 2: Story Allocation by Feature Area
-
-| Functional Core Feature Area | Total Count |
-| :--- | :--- |
-| **Authentication & Access** | 4 Stories |
-| **Student Management** | 5 Stories |
-| **Course Management** | 4 Stories |
-| **Grades Management** | 3 Stories |
-| **Attendance Tracking** | 2 Stories |
-| **Reports & Notifications** | 2 Stories |
-| **Total Backlog** | **20 Stories** |
-
----
-
-**Engineering Review Board Control Summary:**
-
-*   **Document Status:** Baseline Requirements Finalized
-*   **Author / Specification Engineer:** Sarah Zaheer (Product Owner)
-*   **Quality Assurance Reviewer:** Tamana Omar (Scrum Master)
-*   **Release Date:** October 10, 2026
+| Feature Area | Story Count |
