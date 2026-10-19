@@ -132,16 +132,33 @@
     </main>
 
     <script>
-        const loginForm = document.getElementById("loginForm");
-        const message = document.getElementById("message");
+    const loginForm = document.getElementById("loginForm");
+const message = document.getElementById("message");
 
-        loginForm.addEventListener("submit", function(event) {
-            event.preventDefault();
+loginForm.addEventListener("submit", async function(event) {
+    event.preventDefault();
 
-            message.textContent =
-                "Teacher login page is ready. Backend connection is not set up yet.";
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    message.textContent = "Logging in...";
+
+    try {
+        const response = await fetch("http://127.0.0.1:5000/api/auth/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ email, password })
         });
-    </script>
+
+        const data = await response.json();
+        message.textContent = data.message;
+    } catch (error) {
+        message.textContent = "Cannot connect to the server.";
+    }
+});
+</script>
 
 </body>
 </html>
