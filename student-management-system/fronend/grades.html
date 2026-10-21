@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Management | Student Management System</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            color: #263238;
+        }
+
+        header {
+            background: #183153;
+            color: white;
+            padding: 22px 7%;
+        }
+
+        header h1 {
+            margin-bottom: 6px;
+        }
+
+        header p {
+            color: #dce6f2;
+            font-size: 14px;
+        }
+
+        nav {
+            background: white;
+            padding: 15px 7%;
+            border-bottom: 1px solid #e1e5eb;
+        }
+
+        nav a {
+            color: #183153;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .page-heading {
+            margin-bottom: 25px;
+        }
+
+        .page-heading h2 {
+            margin-bottom: 8px;
+        }
+
+        .page-heading p {
+            color: #687586;
+            line-height: 1.5;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .card h3 {
+            margin-bottom: 18px;
+        }
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 650px;
+        }
+
+        th, td {
+            padding: 14px 12px;
+            text-align: left;
+            border-bottom: 1px solid #e7ebf0;
+            font-size: 14px;
+        }
+
+        th {
+            background: #f7f9fc;
+            color: #46566b;
+        }
+
+        td input {
+            width: 100px;
+            padding: 9px;
+            border: 1px solid #ccd3dc;
+            border-radius: 5px;
+        }
+
+        td input:focus {
+            outline: 2px solid #b6d4fe;
+            border-color: #2864b4;
+        }
+
+        button {
+            background: #2459a9;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #183f7b;
+        }
+
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 25px;
+        }
+
+        .summary-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .summary-card p {
+            color: #687586;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .summary-card strong {
+            font-size: 25px;
+            color: #183153;
+        }
+
+        .message {
+            margin-top: 15px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        footer {
+            text-align: center;
+            color: #687586;
+            font-size: 13px;
+            padding: 25px;
+        }
+
+        @media (max-width: 650px) {
+            header, nav {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .card {
+                padding: 18px;
+            }
+
+            .summary {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Student Management System</h1>
+    <p>Academic Performance Management</p>
+</header>
+
+<nav>
+    <a href="admin-login.html">Admin Login</a>
+    <a href="teacher-login.html">Teacher Login</a>
+    <a href="students.html">Students</a>
+    <a href="courses.html">Courses</a>
+    <a href="enrollment.html">Enrollment</a>
+    <a href="grades.html">Grades</a>
+</nav>
+
+<main>
+    <section class="page-heading">
+        <h2>Grade Management</h2>
+        <p>Enter, update, and review students' numerical grades.</p>
+    </section>
+
+    <section class="summary">
+        <div class="summary-card">
+            <p>Students</p>
+            <strong id="studentCount">0</strong>
+        </div>
+
+        <div class="summary-card">
+            <p>Graded Students</p>
+            <strong id="gradedCount">0</strong>
+        </div>
+
+        <div class="summary-card">
+            <p>Class Average</p>
+            <strong id="classAverage">—</strong>
+        </div>
+    </section>
+
+    <section class="card">
+        <h3>Interactive Grade Matrix</h3>
+
+        <p style="color:#687586; margin-bottom:20px; line-height:1.5;">
+            Enter a score from 0 to 100 for each student. Select Save
+            to update the grade and recalculate the class average.
+        </p>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Student Name</th>
+                        <th>Score (%)</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="gradeTable"></tbody>
+            </table>
+        </div>
+
+        <p id="gradeMessage" class="message" role="status"></p>
+    </section>
+</main>
+
+<footer>
+    Student Management System | Grade Management
+</footer>
+
+<script>
+    // Demonstration records only. Backend integration comes later.
+    const students = [
+        { id: "ST1001", name: "Sample Student 1", score: 85 },
+        { id: "ST1002", name: "Sample Student 2", score: 72 },
+        { id: "ST1003", name: "Sample Student 3", score: null },
+        { id: "ST1004", name: "Sample Student 4", score: 91 }
+    ];
+
+    const gradeTable = document.getElementById("gradeTable");
+    const gradeMessage = document.getElementById("gradeMessage");
+
+    function renderGrades() {
+        gradeTable.replaceChildren();
+
+        students.forEach(student => {
+            const row = gradeTable.insertRow();
+
+            row.insertCell().textContent = student.id;
+            row.insertCell().textContent = student.name;
+
+            const scoreCell = row.insertCell();
+            const input = document.createElement("input");
+
+            input.type = "number";
+            input.min = "0";
+            input.max = "100";
+            input.step = "0.01";
+            input.placeholder = "0–100";
+            input.value = student.score === null ? "" : student.score;
+            input.setAttribute("aria-label", "Score for " + student.name);
+
+            scoreCell.appendChild(input);
+
+            const actionCell = row.insertCell();
+            const button = document.createElement("button");
+
+            button.textContent = "Save";
+            button.addEventListener("click", () => {
+                saveGrade(student, input);
+            });
+
+            actionCell.appendChild(button);
+        });
+
+        updateSummary();
+    }
+
+    function saveGrade(student, input) {
+        const rawValue = input.value.trim();
+        const score = Number(rawValue);
+
+        if (
+            rawValue === "" ||
+            !Number.isFinite(score) ||
+            score < 0 ||
+            score > 100
+        ) {
+            gradeMessage.textContent =
+                "Invalid score. Enter a number from 0 to 100.";
+            gradeMessage.style.color = "#b42318";
+            input.focus();
+            return;
+        }
+
+        student.score = Math.round(score * 100) / 100;
+
+        gradeMessage.textContent =
+            "Grade updated for " + student.name + ".";
+        gradeMessage.style.color = "#18713a";
+
+        updateSummary();
+    }
+
+    function updateSummary() {
+        const gradedStudents = students.filter(
+            student => student.score !== null
+        );
+
+        const average = gradedStudents.length
+            ? gradedStudents.reduce(
+                (total, student) => total + student.score, 0
+              ) / gradedStudents.length
+            : null;
+
+        document.getElementById("studentCount").textContent =
+            students.length;
+
+        document.getElementById("gradedCount").textContent =
+            gradedStudents.length;
+
+        document.getElementById("classAverage").textContent =
+            average === null ? "—" : average.toFixed(2) + "%";
+    }
+
+    renderGrades();
+</script>
+
+</body>
+</html>
