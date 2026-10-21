@@ -4,8 +4,9 @@ This folder tracks daily meeting recordings stored on Google Drive.
 
 | Date | Topic / Session | Link to Recording |
 | :--- | :--- | :--- |
-| Oct 11, 2026 | Sprint 1 Planning | [View Recording](https://drive.google.com/file/d/1poco_bmMZM5APj4MRVOGyAd4RVD5VpZR/view?usp=drive_link) |
-| Oct 13, 2026 | Daily Scrum & Sync | [View Recording]([PASTE_GOOGLE_DRIVE_LINK_HERE](https://drive.google.com/file/d/1D10KVoK4N8CsUlcH5ZBinzaGu-ed2Jt9/view?usp=sharing)) |
-
-
-
+| Oct 11, 2026 | Sprint 1 Planning | [Recording 1](https://drive.google.com/file/d/1poco_bmMZM5APj4MRVOGyAd4RVD5VpZR/view?usp=drive_link) |
+| Oct 13, 2026 | Daily Scrum & Sync | [ Recording 2](https://drive.google.com/file/d/18NUX32LilyNt2rHWg2aJLqecXMVaLuDr/view?usp=sharing) |
+| Oct 14, 2026 | Daily Scrum & Sync | [ Recording ...](https://drive.google.com/file/d/1D10KVoK4N8CsUlcH5ZBinzaGu-ed2Jt9/view?usp=sharing) |
+| Oct 19, 2026 | Daily Scrum & Sync | [ Recording...](https://drive.google.com/file/d/1KPQM1ZVbsoKtC0FcQYeaHGXor_C4MSBE/view?usp=sharing) |
+| Oct 20, 2026 | Daily Scrum & Sync | [ Recording...](https://drive.google.com/file/d/1xJ48NyFQ2pSIr9kAvy8GzQVIZBKY8j3v/view?usp=sharing) |
+| Oct 21, 2026 | Daily Scrum & Sync | [ Recording...]([PASTE_GOOGLE_DRIVE_LINK_HERE]) |
