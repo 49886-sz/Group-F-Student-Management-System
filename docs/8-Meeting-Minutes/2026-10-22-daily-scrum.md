@@ -60,10 +60,6 @@ A structured operational check-in to monitor engineering sprint velocity for our
 * **Scheduled Date:** October 27, 2026  
 * **Session Chair:** Tamana Omar (Scrum Master)  
 
----
-
-## 6. Audit Trail
-* **Session Recording:** [Access Video Asset](https://github.com)
 
 ***
 
