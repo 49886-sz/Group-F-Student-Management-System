@@ -1,7 +1,13 @@
-
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from database import get_admin_by_email, get_teacher_by_email
+from database import (
+    get_admin_by_email,
+    get_teacher_by_email,
+    get_attendance,
+    get_courses,
+    get_enrollment,
+    get_grades
+)
 from werkzeug.security import check_password_hash
 import sqlite3
 
@@ -44,6 +50,7 @@ def login():
         "message": "Invalid email or password"
     }), 401
 
+
 @app.route("/api/students", methods=["GET"])
 def get_students():
     conn = sqlite3.connect("sms.db")
@@ -53,10 +60,28 @@ def get_students():
         rows = conn.execute(
             "SELECT id, name, class, status FROM students"
         ).fetchall()
-
         return jsonify([dict(row) for row in rows])
     finally:
         conn.close()
+
+
+# --- New routes ---
+@app.route("/api/attendance", methods=["GET"])
+def attendance():
+    return jsonify(get_attendance())
+
+@app.route("/api/courses", methods=["GET"])
+def courses():
+    return jsonify(get_courses())
+
+@app.route("/api/enrollment", methods=["GET"])
+def enrollment():
+    return jsonify(get_enrollment())
+
+@app.route("/api/grades", methods=["GET"])
+def grades():
+    return jsonify(get_grades())
+
 
 if __name__ == "__main__":
     app.run(debug=True)
