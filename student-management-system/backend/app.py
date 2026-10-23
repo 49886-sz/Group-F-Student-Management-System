@@ -73,6 +73,27 @@ def attendance():
 @app.route("/api/courses", methods=["GET"])
 def courses():
     return jsonify(get_courses())
+@app.route("/api/courses", methods=["POST"])
+def add_course():
+    data = request.get_json()
+    name = data.get("name")
+    description = data.get("description")
+    teacher_id = data.get("teacher_id")
+
+    if not name:
+        return jsonify({"success": False, "message": "Course name is required"}), 400
+
+    conn = sqlite3.connect("sms.db")
+    cursor = conn.cursor()
+    cursor.execute(
+        "INSERT INTO courses (name, description, teacher_id) VALUES (?, ?, ?)",
+        (name, description, teacher_id)
+    )
+    conn.commit()
+    conn.close()
+
+    return jsonify({"success": True, "message": "Course added successfully"}), 201
+
 
 @app.route("/api/enrollment", methods=["GET"])
 def enrollment():
