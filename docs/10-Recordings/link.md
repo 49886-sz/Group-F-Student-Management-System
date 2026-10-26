@@ -10,6 +10,6 @@ This folder tracks daily meeting recordings stored on Google Drive.
 | Oct 19, 2026 | Daily Scrum & Sync | [ Recording 4](https://drive.google.com/file/d/1KPQM1ZVbsoKtC0FcQYeaHGXor_C4MSBE/view?usp=sharing) |
 | Oct 20, 2026 | Daily Scrum & Sync | [ Recording 5](https://drive.google.com/file/d/1xJ48NyFQ2pSIr9kAvy8GzQVIZBKY8j3v/view?usp=sharing) |
 | Oct 21, 2026 | Daily Scrum & Sync | [ Recording 6](https://drive.google.com/file/d/1CXy7ivkwvD30CiT4tMXt0fWKTqJRV4km/view?usp=drive_link) |
-| Oct 24, 2026 | Daily Scrum & Sync | [ Recording...](https://drive.google.com/file/d/1jy4j_E3KcVZxl_1gt5vZO9qUzChO3H1I/view?usp=drive_link) |
+| Oct 24, 2026 | Daily Scrum & Sync | [ Recording 7](https://drive.google.com/file/d/1jy4j_E3KcVZxl_1gt5vZO9qUzChO3H1I/view?usp=drive_link) |
 | Oct 21, 2026 | Daily Scrum & Sync | [ Recording...]([PASTE_GOOGLE_DRIVE_LINK_HERE]) |
 | Oct 21, 2026 | Daily Scrum & Sync | [ Recording...]([PASTE_GOOGLE_DRIVE_LINK_HERE]) |
