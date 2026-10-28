@@ -298,36 +298,31 @@
 
 <script>
     // Demonstration data only. Replace with backend API data later.
-    const students = [
-        {
-            id: "ST1001",
-            name: "Sample Student 1",
-            email: "student1@example.com",
-            course: "CS101",
-            active: true
-        },
-        {
-            id: "ST1002",
-            name: "Sample Student 2",
-            email: "student2@example.com",
-            course: "CS102",
-            active: true
-        },
-        {
-            id: "ST1003",
-            name: "Sample Student 3",
-            email: "student3@example.com",
-            course: "CS103",
-            active: true
-        },
-        {
-            id: "ST1004",
-            name: "Sample Student 4",
-            email: "student4@example.com",
-            course: "CS101",
-            active: true
+  let students = [];
+
+async function loadStudents() {
+    try {
+        const response = await fetch("http://127.0.0.1:5000/api/students");
+
+        if (!response.ok) {
+            throw new Error("Failed to load students");
         }
-    ];
+
+        students = await response.json();
+
+        students = students.map(student => ({
+            ...student,
+            email: student.email || "",
+            course: student.course || student.class || "",
+            active: student.status === "active" || student.status === 1
+        }));
+
+        renderStudents();
+    } catch (error) {
+        console.error("Could not load students:", error);
+        tableMessage.textContent = "Could not load students. Check that the backend is running.";
+    }
+}
 
     const studentForm = document.getElementById("studentForm");
     const studentTable = document.getElementById("studentTable");
@@ -394,7 +389,7 @@
         document.getElementById("studentName").focus();
     }
 
-    studentForm.addEventListener("submit", function(event) {
+    studentForm.addEventListener("submit", async function(event) {
         event.preventDefault();
 
         if (!editingStudentId) {
@@ -420,10 +415,38 @@
             return;
         }
 
-        student.name = name;
-        student.email = email;
-        student.course = course;
+       try {
+    const response = await fetch(
+        `http://127.0.0.1:5000/api/students/${student.id}`,
+        {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                class: course,
+                status: student.active ? "active" : "inactive"
+            })
+        }
+    );
 
+    if (!response.ok) {
+        throw new Error("Could not save student");
+    }
+
+    student.name = name;
+    student.email = email;
+    student.course = course;
+
+    renderStudents();
+    clearForm();
+
+    formMessage.textContent = "Student profile saved successfully.";
+    formMessage.style.color = "#18713a";
+} catch (error) {
+    formMessage.textContent = "Save failed. Please try again.";
+    formMessage.style.color = "#b42318";
+} 
         renderStudents();
         clearForm();
 
@@ -469,7 +492,7 @@
         formMessage.textContent = "";
     });
 
-    renderStudents();
+    loadStudents();
 </script>
 
 </body>
