@@ -63,6 +63,45 @@ def get_students():
         return jsonify([dict(row) for row in rows])
     finally:
         conn.close()
+# --- Add a new student ---
+@app.route("/api/students", methods=["POST"])
+def add_student():
+    data = request.get_json()
+    conn = sqlite3.connect("sms.db")
+    cursor = conn.cursor()
+    cursor.execute(
+        "INSERT INTO students (id, name, class, status) VALUES (?, ?, ?, ?)",
+        (data["id"], data["name"], data["class"], data["status"])
+    )
+    conn.commit()
+    conn.close()
+    return jsonify({"success": True, "message": "Student added"}), 201
+
+
+# --- Update an existing student ---
+@app.route("/api/students/<student_id>", methods=["PUT"])
+def update_student(student_id):
+    data = request.get_json()
+    conn = sqlite3.connect("sms.db")
+    cursor = conn.cursor()
+    cursor.execute(
+        "UPDATE students SET name=?, class=?, status=? WHERE id=?",
+        (data["name"], data["class"], data["status"], student_id)
+    )
+    conn.commit()
+    conn.close()
+    return jsonify({"success": True, "message": "Student updated"})
+
+
+# --- Delete a student ---
+@app.route("/api/students/<student_id>", methods=["DELETE"])
+def delete_student(student_id):
+    conn = sqlite3.connect("sms.db")
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM students WHERE id=?", (student_id,))
+    conn.commit()
+    conn.close()
+    return jsonify({"success": True, "message": "Student deleted"})
 
 
 # --- New routes ---
