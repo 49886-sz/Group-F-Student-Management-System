@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Student Accounts | Student Management System</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            color: #263238;
+        }
+
+        header {
+            background: #183153;
+            color: white;
+            padding: 22px 7%;
+        }
+
+        header h1 {
+            margin-bottom: 6px;
+        }
+
+        header p {
+            color: #dce6f2;
+            font-size: 14px;
+        }
+
+        nav {
+            background: white;
+            padding: 15px 7%;
+            border-bottom: 1px solid #e1e5eb;
+        }
+
+        nav a {
+            color: #183153;
+            text-decoration: none;
+            margin-right: 16px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .page-heading {
+            margin-bottom: 25px;
+        }
+
+        .page-heading h2 {
+            margin-bottom: 8px;
+        }
+
+        .page-heading p {
+            color: #687586;
+            line-height: 1.5;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .card h3 {
+            margin-bottom: 18px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #ccd3dc;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        input:focus {
+            outline: 2px solid #b6d4fe;
+            border-color: #2864b4;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            width: 100%;
+        }
+
+        table {
+            width: 100%;
+            min-width: 750px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 14px 12px;
+            border-bottom: 1px solid #e7ebf0;
+            font-size: 14px;
+        }
+
+        th {
+            background: #f7f9fc;
+            color: #46566b;
+        }
+
+        button {
+            padding: 9px 13px;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .primary-button {
+            background: #2459a9;
+            color: white;
+            margin-top: 20px;
+        }
+
+        .primary-button:hover {
+            background: #183f7b;
+        }
+
+        .edit-button {
+            background: #e5efff;
+            color: #2459a9;
+        }
+
+        .deactivate-button {
+            background: #fde8e7;
+            color: #b42318;
+            margin-left: 5px;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .active {
+            background: #e1f5e8;
+            color: #18713a;
+        }
+
+        .inactive {
+            background: #fde8e7;
+            color: #b42318;
+        }
+
+        .message {
+            margin-top: 15px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .empty-message {
+            text-align: center;
+            padding: 25px;
+            color: #687586;
+        }
+
+        footer {
+            text-align: center;
+            color: #687586;
+            padding: 25px;
+            font-size: 13px;
+        }
+
+        @media (max-width: 650px) {
+            header, nav {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .card {
+                padding: 18px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Student Management System</h1>
+    <p>Administration Portal</p>
+</header>
+
+<nav>
+    <a href="admin-login.html">Admin Login</a>
+    <a href="teacher-login.html">Teacher Login</a>
+    <a href="students.html">Students</a>
+    <a href="courses.html">Courses</a>
+    <a href="enrollment.html">Enrollment</a>
+    <a href="grades.html">Grades</a>
+    <a href="attendance.html">Attendance</a>
+    <a href="manage-students.html">Manage Accounts</a>
+</nav>
+
+<main>
+    <section class="page-heading">
+        <h2>Student Profile & Account Management</h2>
+        <p>Review student details, update profiles, and deactivate accounts.</p>
+    </section>
+
+    <section class="card">
+        <h3>Edit Student Profile</h3>
+
+        <form id="studentForm">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="studentId">Student ID</label>
+                    <input id="studentId" type="text" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentName">Full Name</label>
+                    <input id="studentName" type="text" required maxlength="100">
+                </div>
+
+                <div class="form-group">
+                    <label for="studentEmail">Email Address</label>
+                    <input id="studentEmail" type="email" required maxlength="254">
+                </div>
+
+                <div class="form-group">
+                    <label for="studentClass">Class / Course</label>
+                    <input id="studentClass" type="text" required maxlength="100">
+                </div>
+            </div>
+
+            <button type="submit" class="primary-button">Save Changes</button>
+            <button type="button" id="cancelEdit" class="edit-button">Cancel</button>
+
+            <p id="formMessage" class="message" role="status"></p>
+        </form>
+    </section>
+
+    <section class="card">
+        <h3>Student Registry</h3>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Class / Course</th>
+                        <th>Account Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody id="studentTable"></tbody>
+            </table>
+        </div>
+
+        <p id="tableMessage" class="message" role="status"></p>
+    </section>
+</main>
+
+<footer>
+    Student Management System | Account Administration
+</footer>
+
+<script>
+    // Demonstration data only. Replace with backend API data later.
+  let students = [];
+
+async function loadStudents() {
+    try {
+        const response = await fetch("http://127.0.0.1:5000/api/students");
+
+        if (!response.ok) {
+            throw new Error("Failed to load students");
+        }
+
+        students = await response.json();
+
+        students = students.map(student => ({
+            ...student,
+            email: student.email || "",
+            course: student.course || student.class || "",
+            active: student.status === "active" || student.status === 1
+        }));
+
+        renderStudents();
+    } catch (error) {
+        console.error("Could not load students:", error);
+        tableMessage.textContent = "Could not load students. Check that the backend is running.";
+    }
+}
+
+    const studentForm = document.getElementById("studentForm");
+    const studentTable = document.getElementById("studentTable");
+    const formMessage = document.getElementById("formMessage");
+    const tableMessage = document.getElementById("tableMessage");
+
+    let editingStudentId = null;
+
+    function renderStudents() {
+        studentTable.replaceChildren();
+
+        students.forEach(student => {
+            const row = studentTable.insertRow();
+
+            row.insertCell().textContent = student.id;
+            row.insertCell().textContent = student.name;
+            row.insertCell().textContent = student.email;
+            row.insertCell().textContent = student.course;
+
+            const statusCell = row.insertCell();
+            const badge = document.createElement("span");
+
+            badge.className = "status " +
+                (student.active ? "active" : "inactive");
+            badge.textContent = student.active ? "Active" : "Inactive";
+            statusCell.appendChild(badge);
+
+            const actionsCell = row.insertCell();
+
+            const editButton = document.createElement("button");
+            editButton.textContent = "Edit";
+            editButton.className = "edit-button";
+            editButton.addEventListener("click", () => {
+                loadStudentForEditing(student.id);
+            });
+            actionsCell.appendChild(editButton);
+
+            const deactivateButton = document.createElement("button");
+            deactivateButton.className = "deactivate-button";
+            deactivateButton.textContent =
+                student.active ? "Deactivate" : "Activate";
+            deactivateButton.addEventListener("click", () => {
+                toggleAccountStatus(student.id);
+            });
+            actionsCell.appendChild(deactivateButton);
+        });
+    }
+
+    function loadStudentForEditing(studentId) {
+        const student = students.find(item => item.id === studentId);
+
+        if (!student) return;
+
+        editingStudentId = student.id;
+
+        document.getElementById("studentId").value = student.id;
+        document.getElementById("studentName").value = student.name;
+        document.getElementById("studentEmail").value = student.email;
+        document.getElementById("studentClass").value = student.course;
+
+        formMessage.textContent = "Editing " + student.id + ".";
+        formMessage.style.color = "#2459a9";
+
+        document.getElementById("studentName").focus();
+    }
+
+    studentForm.addEventListener("submit", async function(event) {
+        event.preventDefault();
+
+        if (!editingStudentId) {
+            formMessage.textContent =
+                "Please select a student from the registry first.";
+            formMessage.style.color = "#b42318";
+            return;
+        }
+
+        const student = students.find(
+            item => item.id === editingStudentId
+        );
+
+        if (!student) return;
+
+        const name = document.getElementById("studentName").value.trim();
+        const email = document.getElementById("studentEmail").value.trim();
+        const course = document.getElementById("studentClass").value.trim();
+
+        if (!name || !email || !course) {
+            formMessage.textContent = "Please complete all fields.";
+            formMessage.style.color = "#b42318";
+            return;
+        }
+
+       try {
+    const response = await fetch(
+        `http://127.0.0.1:5000/api/students/${student.id}`,
+        {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                class: course,
+                status: student.active ? "active" : "inactive"
+            })
+        }
+    );
+
+    if (!response.ok) {
+        throw new Error("Could not save student");
+    }
+
+    student.name = name;
+    student.email = email;
+    student.course = course;
+
+    renderStudents();
+    clearForm();
+
+    formMessage.textContent = "Student profile saved successfully.";
+    formMessage.style.color = "#18713a";
+} catch (error) {
+    formMessage.textContent = "Save failed. Please try again.";
+    formMessage.style.color = "#b42318";
+} 
+        renderStudents();
+        clearForm();
+
+        formMessage.textContent =
+            "Profile updated in this demonstration.";
+        formMessage.style.color = "#18713a";
+    });
+
+    function toggleAccountStatus(studentId) {
+        const student = students.find(item => item.id === studentId);
+
+        if (!student) return;
+
+        const action = student.active ? "deactivate" : "activate";
+
+        const confirmed = window.confirm(
+            "Are you sure you want to " + action +
+            " the account for " + student.name + "?"
+        );
+
+        if (!confirmed) return;
+
+        student.active = !student.active;
+
+        renderStudents();
+
+        tableMessage.textContent =
+            student.name + "'s account is now " +
+            (student.active ? "active" : "inactive") +
+            " in this demonstration.";
+
+        tableMessage.style.color = "#18713a";
+    }
+
+    function clearForm() {
+        editingStudentId = null;
+        studentForm.reset();
+        document.getElementById("studentId").value = "";
+    }
+
+    document.getElementById("cancelEdit").addEventListener("click", () => {
+        clearForm();
+        formMessage.textContent = "";
+    });
+
+    loadStudents();
+</script>
+
+</body>
+</html>
