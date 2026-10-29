@@ -3,7 +3,7 @@
 **Project:** Group F – Student Management System
 **Product Owner:** Sarah Zaheer
 **Total Stories:** 20
-**Format:** As a [role], I want [feature], so that [benefit]
+
 
 ---
 
