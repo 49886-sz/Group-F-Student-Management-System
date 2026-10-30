@@ -1,0 +1,60 @@
+# Student Management System - Test Plan
+
+This document describes the testing plan for the backend and frontend of the Student Management System project. It includes test cases, expected results, screenshots, and notes about known issues.
+## Scope
+- Included: API routes (students, courses, grades, attendance, login), frontend login pages.
+- Excluded: PUT/DELETE routes for students (still under development).
+## Test Environment
+- Backend: Flask app running at http://127.0.0.1:5000
+- Frontend: Static files served at http://127.0.0.1:5500/fronend/
+- Database: sms.db with sample data
+- Tools: Browser, Postman, Python test script (backend/test_api.py)
+## Test Cases
+
+### TC-01: Get Students
+- **Action:** GET /api/students
+- **Expected:** JSON list of students
+- **Result:** ✅ Passed
+- **Screenshot:** ![Students GET](screenshots/students-get.png)
+
+### TC-02: Get Courses
+- **Action:** GET /api/courses
+- **Expected:** JSON list of courses (empty if none exist)
+- **Result:** ⚠️ Empty list
+- **Screenshot:** ![Courses GET](screenshots/courses-get.png)
+
+### TC-03: Add Course
+- **Action:** POST /api/courses {name:"Intro to Python", description:"CS101", teacher_id:1}
+- **Expected:** {"success":true,"message":"Course added successfully"}
+- **Result:** ✅ Passed
+- **Screenshot:** ![Course POST](screenshots/courses-post.png)
+
+### TC-04: Get Grades
+- **Action:** GET /api/grades
+- **Expected:** JSON list of grades
+- **Result:** ✅ Passed
+- **Screenshot:** ![Grades GET](screenshots/grades-get.png)
+
+### TC-05: Get Attendance
+- **Action:** GET /api/attendance
+- **Expected:** JSON list of attendance records
+- **Result:** ✅ Passed
+- **Screenshot:** ![Attendance GET](screenshots/attendance-get.png)
+
+### TC-06: Admin Login
+- **Action:** POST /api/auth/login with admin credentials
+- **Expected:** {"success":true,"role":"admin","token":"mock-token"}
+- **Result:** ✅ Passed
+- **Screenshot:** ![Admin Login](screenshots/login-admin.png)
+
+### TC-07: Teacher Login
+- **Action:** POST /api/auth/login with teacher credentials
+- **Expected:** {"success":true,"role":"teacher","token":"mock-token"}
+- **Result:** ✅ Passed
+- **Screenshot:** ![Teacher Login](screenshots/login-teacher.png)
+## Known Issues
+- PUT and DELETE routes for students not implemented.
+- Frontend pages still use sample data instead of API calls.
+- Login returns mock tokens (not real authentication).
+## Conclusion
+The backend API is functional for GET and POST routes. Login works for both admin and teacher roles. Future work will include PUT/DELETE routes and full frontend integration.

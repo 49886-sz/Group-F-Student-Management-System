@@ -1,10 +1,12 @@
 # User Stories Specification Document
 
+
 **Project Reference:** Student Management System (SMS)  
 **Engineering Group:** Group F  
 **Product Owner:** Sarah Zaheer  
 **Scrum Master:** Tamana Omar  
 **Baseline Release Date:** October 10, 2026  
+>>>>>>> ed36a9cd430d10b10bbc49a5497311cec903c09a
 
 ---
 
