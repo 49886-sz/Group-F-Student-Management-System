@@ -1,6 +1,6 @@
 # Sprint 1 Planning Meeting Minutes
 **Project:** Student Management System - Group F
-**Date:** October 10, 2026
+**Date:** October 11, 2026
 **Facilitator:** Tamana Omar (Scrum Master)
 
 ## 1. Meeting Summary
@@ -20,3 +20,8 @@ By the end of Sprint 1, the system will have a working login for all three user 
 ## 4. Next Steps & Post-Meeting Actions
 - Hamida to upload the video recording of this planning session to the recordings folder.
 - Tamana to coordinate and track these features on the GitHub Project tracking board.
+
+---
+**Document Prepared by:** Tamana Omar (Scrum Master)  
+**Reviewed by:** Sarah Zaheer (Product Owner)  
+**Status:** ✅ Completed
