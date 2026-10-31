@@ -63,3 +63,15 @@ def get_grades():
     rows = conn.execute("SELECT * FROM grades").fetchall()
     conn.close()
     return [dict(row) for row in rows]
+
+def add_student_email_column():
+    conn = sqlite3.connect("sms.db")
+    try:
+        columns = conn.execute("PRAGMA table_info(students)").fetchall()
+        column_names = [column[1] for column in columns]
+
+        if "email" not in column_names:
+            conn.execute("ALTER TABLE students ADD COLUMN email TEXT")
+            conn.commit()
+    finally:
+        conn.close()

@@ -132,13 +132,14 @@
     </main>
 
     <script>
-    const loginForm = document.getElementById("loginForm");
+    
+const loginForm = document.getElementById("loginForm");
 const message = document.getElementById("message");
 
 loginForm.addEventListener("submit", async function(event) {
     event.preventDefault();
 
-    const email = document.getElementById("email").value;
+    const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value;
 
     message.textContent = "Logging in...";
@@ -153,11 +154,21 @@ loginForm.addEventListener("submit", async function(event) {
         });
 
         const data = await response.json();
-        message.textContent = data.message;
+
+        if (response.ok && data.success && data.role === "teacher") {
+            sessionStorage.setItem("userRole", data.role);
+            sessionStorage.setItem("userToken", data.token);
+
+            window.location.href = "attendance.html";
+        } else {
+            message.textContent = data.message || "Teacher login failed.";
+        }
+
     } catch (error) {
         message.textContent = "Cannot connect to the server.";
     }
 });
+
 </script>
 
 </body>

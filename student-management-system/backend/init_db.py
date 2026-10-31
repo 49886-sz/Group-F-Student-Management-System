@@ -5,10 +5,12 @@ conn = sqlite3.connect("sms.db")
 cursor = conn.cursor()
 
 # --- Create students table ---
+# --- Create students table ---
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS students (
     id TEXT PRIMARY KEY,
     name TEXT NOT NULL,
+    email TEXT,
     class TEXT NOT NULL,
     status TEXT NOT NULL
 )
