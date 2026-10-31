@@ -6,12 +6,12 @@ This file tracks our features as they are completed during Sprint 1 (October 10 
 
 | Feature Name | Assigned Developer | Status | Date Completed |
 | :--- | :--- | :--- | :--- |
-| Admin login functionality | Najma Jamshidi | In Progress | [Blank] |
-| Teacher login functionality | Najma Jamshidi | To Do | [Blank] |
-| Student login functionality | Hamida Sana | To Do | [Blank] |
-| Logout functionality | Hamida Sana | To Do | [Blank] |
-| Register new students portal | Hamida Sana | To Do | [Blank] |
-| View all students list interface | Najma Jamshidi | To Do | [Blank] |
+| Admin login functionality | Najma Jamshidi | In Progress | Done  |
+| Teacher login functionality | Najma Jamshidi | To Do | [Done] |
+| Student login functionality | Hamida Sana | To Do | [Done] |
+| Logout functionality | Hamida Sana | To Do | [Done] |
+| Register new students portal | Hamida Sana | To Do | [Done] |
+| View all students list interface | Najma Jamshidi | To Do | [Done] |
 
 ## Daily Remaining Feature Count
 This shows how many features are left to finish as time passes:
